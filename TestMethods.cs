@@ -58,10 +58,40 @@ namespace TestProject1
         {
             List<uint> list = new List<uint>();
 
-           
+            List<uint> list = new List<uint>();
+
+            // Crear un arreglo temporal para almacenar los elementos
+            uint[] tempArray = new uint[stack.Count];
+            int index = stack.Count - 1; // Posición inicial para invertir los valores
+
+            // Extraer elementos de la pila y almacenarlos en el arreglo en orden invertido
             foreach (uint num in stack)
             {
-                list.Insert(0, num); // Insertar siempre en la posición 0
+                tempArray[index] = num;
+                index--;
+            }
+
+            // Transferir los valores desde el arreglo a la lista
+            for (int i = 0; i < tempArray.Length; i++)
+            {
+                list.Add(tempArray[i]);
+            }
+
+            return list;
+            uint[] tempArray = new uint[stack.Count];
+            int index = stack.Count - 1; // Posición inicial para invertir los valores
+
+            // Extraer elementos de la pila y almacenarlos en el arreglo en orden invertido
+            foreach (uint num in stack)
+            {
+                tempArray[index] = num;
+                index--;
+            }
+
+            // Transferir los valores desde el arreglo a la lista
+            for (int i = 0; i < tempArray.Length; i++)
+            {
+                list.Add(tempArray[i]);
             }
 
             return list;
