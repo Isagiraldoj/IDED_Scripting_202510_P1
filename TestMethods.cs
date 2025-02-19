@@ -64,10 +64,28 @@ namespace TestProject1
         // Función para determinar si un número se encuentra en la lista después de ordenar
         internal static bool FoundElementAfterSorted(List<int> list, int value)
         {
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                for (int j = 0; j < list.Count - 1 - i; j++)
+                {
+                    if (list[j] > list[j + 1])
+                    {
+                        int temp = list[j];
+                        list[j] = list[j + 1];
+                        list[j + 1] = temp;
+                    }
+                }
+            }
+
+            foreach (int num in list)
+            {
+                if (num == value)
+                    return true;
+            }
             return false;
         }
 
-        // Función auxiliar para verificar si un número es primo
+        // Función para verificar si un número es primo
         private static bool EsPrimo(uint num)
         {
             if (num < 2) return false;
