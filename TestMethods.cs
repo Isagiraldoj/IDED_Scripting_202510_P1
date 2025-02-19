@@ -44,8 +44,7 @@ namespace TestProject1
         internal static Queue<uint> CreateQueueFromStack(Stack<uint> stack)
         {
             Queue<uint> queue = new Queue<uint>();
-            Stack<uint> tempStack = new Stack<uint>(stack); // Copia para preservar el orden
-
+            Stack<uint> tempStack = new Stack<uint>(stack); 
             while (tempStack.Count > 0)
             {
                 queue.Enqueue(tempStack.Pop());
@@ -57,8 +56,14 @@ namespace TestProject1
         // Función para convertir la pila en una lista
         internal static List<uint> StackToList(Stack<uint> stack)
         {
-            List<uint> list = new List<uint>(stack);
-            list.Reverse(); 
+            List<uint> list = new List<uint>();
+
+           
+            foreach (uint num in stack)
+            {
+                list.Insert(0, num); // Insertar siempre en la posición 0
+            }
+
             return list;
         }
         // Función para determinar si un número se encuentra en la lista después de ordenar
